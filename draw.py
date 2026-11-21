@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """THE OVERNIGHT EDITION - a one-page dark-edition newspaper summing up
-Saturday 21 November 2026: 34 stories, 13 pictured cards, a locator map,
-21 briefs, a numbers strip and a date check.
+Saturday 21 November 2026: 40 stories, 13 pictured cards, a locator map,
+27 briefs, a numbers strip and a date check.
 
 Draws entry.png (1024x1024) next to this file using only Pillow primitives:
 flat vector-style shapes, no external images. Deterministic: no randomness,
@@ -97,10 +97,10 @@ def panel(x, y, w, h, fill=PANEL, outline=None):
 NUMBERS = [
     ("3", "weapons cross into Poland: two missiles and a jet drone"),
     ("42", "injured in the Kryvyi Rih strike, four of them children"),
-    ("-5.28%", "Nasdaq's fall at Friday's close"),
-    ("372,000", "people moved to shelters as Akvan hit"),
-    ("€1BN", "EU military aid adopted for Ukraine"),
-    ("159/1", "India at stumps in Wellington"),
+    ("900,000", "AI chips the US has cleared for export to China"),
+    ("6", "Houthi workshops destroyed in the Sana'a strikes"),
+    ("€8BN", "paid out by the EU to Kyiv"),
+    ("159/1", "India at stumps in Wellington, day three"),
 ]
 
 TIMELINE = [
@@ -112,8 +112,8 @@ TIMELINE = [
 ]
 
 REGION_COUNTS = [
-    ("EUROPE", 13), ("ASIA", 6), ("MIDEAST", 5), ("AFRICA", 1),
-    ("AMERICAS", 6), ("OCEANIA", 1), ("GLOBAL", 2),
+    ("EUROPE", 16), ("ASIA", 7), ("MIDEAST", 3), ("AFRICA", 1),
+    ("AMERICAS", 8), ("OCEANIA", 1), ("GLOBAL", 4),
 ]
 
 # no, place, region, topic, headline, deck, strip source tag, strip data
@@ -132,16 +132,17 @@ CARDS = [
      "morning. (AP)",
      "Ongoing - AP", "NO DEAL YET", "ANTALYA - COP31 OVERTIME",
      (30.7, 36.9)),
-    (3, "NEW YORK", "AMERICAS", "MARKETS",
-     "Wall Street enters correction as AI rout deepens",
-     "The S&P 500 fell about 3.7% on Friday, pushing it into correction "
-     "territory. The Nasdaq dropped 5.28% as chip and AI shares plunged. "
-     "(SimpleLife)",
-     "Friday's close", "NASDAQ -5.28%", "NEW YORK - FRIDAY'S CLOSE",
-     (-74.0, 40.7)),
+    (3, "WASHINGTON", "AMERICAS", "TECH",
+     "US clears 900,000 AI chips for China",
+     "Washington clears exports of some 900,000 advanced AI chips to "
+     "China - the largest single release of the year, officials say. "
+     "(Reuters)",
+     "Officials say", "900,000 CHIPS", "WASHINGTON - THE CHIP RELEASE",
+     (-77.0, 38.9)),
     (4, "KRYVYI RIH", "EUROPE", "WAR",
      "Russian strike kills two, injures 42",
-     "Among Russia's largest attacks of the war. (AppiStos)",
+     "Across Ukraine the day's toll hits 12 dead, 82 hurt - among the "
+     "war's largest attacks. (AppiStos)",
      "City chief says", "2 DEAD - 42 HURT", "KRYVYI RIH - OVERNIGHT STRIKE",
      (33.4, 47.9)),
     (5, "COPENHAGEN", "EUROPE", "PLOT",
@@ -151,7 +152,8 @@ CARDS = [
      (12.6, 55.7)),
     (6, "KYIV", "EUROPE", "WAR",
      "Russia's barrage: 400 drones, 110 missiles",
-     "Eight dead across Ukraine; Austrian embassy hit in Kyiv. (BBC)",
+     "Eight dead; Austrian embassy hit. Power rationed; 50 Rivne "
+     "settlements dark. (BBC)",
      "Officials' count", "400 DRONES - 110 MISSILES", "KYIV - THE BARRAGE",
      (30.5, 50.4)),
     (7, "ODISHA, INDIA", "ASIA", "CYCLONE",
@@ -160,20 +162,22 @@ CARDS = [
      "Relief reports", "372,000 MOVED", "ODISHA - AFTER LANDFALL",
      (84.9, 19.3)),
     (8, "BRUSSELS", "EUROPE", "DEFENCE",
-     "EU adopts 1bn euro military aid for Ukraine",
-     "EU joint buying; Britain pledges 1,000+ drones too. (Reuters)",
-     "Adopted - EU", "EUR 1BN ADOPTED", "BRUSSELS - PEACE FACILITY",
+     "EU pays out nearly €8bn to Kyiv",
+     "The payout lands as joint buying runs via the Peace Facility; "
+     "Britain adds 1,000+ drones alongside. (Reuters)",
+     "Paid out - EU", "EUR 8BN PAID OUT", "BRUSSELS - THE PAYOUT",
      (4.3, 50.8)),
     (9, "NEW YORK", "AMERICAS", "CYBER",
      "JPMorgan, Visa, Mastercard hit by cyberattack",
      "Vendor incidents; core payment networks unaffected. (Reuters)",
      "Banks say", "3 NETWORKS HIT", "NEW YORK - PAYMENT NETWORKS",
      (-73.9, 40.8)),
-    (10, "ULAANBAATAR", "ASIA", "POLITICS",
-     "Mongolia's president resigns",
-     "Sets up a snap election after a week of turmoil. (Reuters)",
-     "Capital reports", "SNAP ELECTION NEXT", "ULAANBAATAR - THE RESIGNATION",
-     (106.9, 47.9)),
+    (10, "RIYADH", "MIDEAST", "SECURITY",
+     "Coalition hits Houthi workshops in Sana'a",
+     "Six workshops destroyed; three Houthi missiles downed over "
+     "Riyadh. (Reuters)",
+     "Reuters", "6 WORKSHOPS - 3 MISSILES", "RIYADH - THE ALERT",
+     (46.7, 24.6)),
     (11, "THE HAGUE", "GLOBAL", "COURT",
      "Myanmar ruling rattles Israel's Gaza defence",
      "Myanmar verdict raises questions over Israel's own case. (BBC)",
@@ -185,57 +189,70 @@ CARDS = [
      "Count - BBC", "ANC 31%", "JOHANNESBURG - THE COUNT",
      (28.0, -26.2)),
     (13, "WELLINGTON", "OCEANIA", "CRICKET",
-     "India fight back: 159/1 at stumps, day two",
+     "India fight back: 159/1 at stumps, day three",
      "India trail by 209; hosts made 368, Nicholls 175*. (ICC)",
-     "Scorecard - ICC", "159/1 - DAY TWO", "WELLINGTON - DAY TWO",
+     "Scorecard - ICC", "159/1 - DAY THREE", "WELLINGTON - DAY THREE",
      (174.8, -41.3)),
 ]
 
 BRIEFS = [
     (14, "Kathmandu", "Nepal's new leader Balendra Shah faces an India test (BBC)"),
-    (15, "Washington", "US releases more UFO footage filmed in the Middle East (BBC)"),
-    (16, "Cardiff", "Lauren Price beats Kotaskova to become undisputed champion (BBC)"),
-    (17, "Paris", "Three police are sentenced over the beating of Michel Zecler (BBC)"),
-    (18, "Oxford", "Life, 22 years minimum, for the Thames drowning murder (BBC)"),
-    (19, "New York", "Nikhil Gupta gets 19+ years over the Sikh murder plot (BBC)"),
-    (20, "Hormuz", "A tanker is struck and on fire in the Strait of Hormuz (UKMTO)"),
-    (21, "Los Angeles", "A jury convicts the man who started the Palisades Fire (AP)"),
-    (22, "Frankfurt", "ECB names Boone and Brunnermeier for its Executive Board (Reuters)"),
-    (23, "Buenos Aires", "Argentina's Senate backs a disability framework, 71-0 (AP)"),
-    (24, "Riyadh", "A Saudi coalition intercepts Houthi missiles over Riyadh (Reuters)"),
-    (25, "Barcelona", "A pill is hailed as a breakthrough for pancreatic cancer (Reuters)"),
-    (26, "Gaza", "On World Children's Day, Palestinian children appeal for help (UN)"),
-    (27, "Rome", "Italian workers and students march against Meloni's government (AFP)"),
-    (28, "Jeddah", "Saudi Arabia warns of thunderstorms through Tuesday (SPA)"),
-    (29, "Kuala Lumpur", "Malaysia to send 10,000 Rohingya to Turkey for training (Reuters)"),
-    (30, "Kharkiv", 'Ukraine says it has finished a "Bear Trap" in the Kharkiv area (Ukrinform)'),
-    (31, "Islamabad", "Pakistan's minerals are worth $8-10 trillion, its minister says (Reuters)"),
-    (32, "Singapore", "US presses Singapore and Malaysia on Iran sanctions (Reuters)"),
-    (33, "Ankara", "Turkey welcomes the World Court's Myanmar ruling (Anadolu)"),
-    (34, "Turin", "ATP semis are set: Alcaraz v Shelton, Zverev v Medvedev (ATP)"),
+    (15, "Cardiff", "Lauren Price beats Kotaskova to become undisputed champion (BBC)"),
+    (16, "Paris", "Three police are sentenced over the beating of Michel Zecler (BBC)"),
+    (17, "Oxford", "Life, 22 years minimum, for the Thames drowning murder (BBC)"),
+    (18, "New York", "Nikhil Gupta gets 19+ years over the Sikh murder plot (BBC)"),
+    (19, "Los Angeles", "A jury convicts the man who started the Palisades Fire (AP)"),
+    (20, "Frankfurt", "ECB names Boone and Brunnermeier for its Executive Board (Reuters)"),
+    (21, "Buenos Aires", "Argentina's Senate backs a disability framework, 71-0 (AP)"),
+    (22, "Barcelona", "A pill is hailed as a breakthrough for pancreatic cancer (Reuters)"),
+    (23, "Gaza", "On World Children's Day, Palestinian children appeal for help (UN)"),
+    (24, "Rome", "Italian workers and students march against Meloni's government (AFP)"),
+    (25, "Kuala Lumpur", "Malaysia to send 10,000 Rohingya to Turkey for training (Reuters)"),
+    (26, "Kharkiv", 'Ukraine says it has finished a "Bear Trap" in the Kharkiv area (Ukrinform)'),
+    (27, "Turin", "ATP semis tonight: Alcaraz v Shelton, Zverev v Medvedev (ATP)"),
+    (28, "Mercury", "BepiColombo arrives tonight after 8 years (ESA)"),
+    (29, "Kharg Island", "Tanker convoy tests US blockade; Brent $94.65 (Reuters)"),
+    (30, "Sacramento", "California subpoenas Nvidia over AI chips (AP)"),
+    (31, "New Delhi", "India's first H5N1 vaccine launches (Reuters)"),
+    (32, "Imphal", "Manipur clashes kill 11; 181 in hospital (AP)"),
+    (33, "Atlanta", "Measles ends US elimination status (CDC)"),
+    (34, "Pasadena", "Voyager 1 reaches one light-day out (NASA)"),
+    (35, "Tokyo", "Japan to buy 8m barrels of Saudi crude (Reuters)"),
+    (36, "Leverkusen", "Bayer's Roundup settlement: $7.25bn (Reuters)"),
+    (37, "Sumy", "HIMARS kills 20 Russian commanders (Ukrinform)"),
+    (38, "London", "UK cyberattacks hit Moscow (BBC)"),
+    (39, "Jakarta", "Asks Google: why 19,000 accounts gone? (AP)"),
+    (40, "Las Vegas", "GP qualifying today on the Strip (AP)"),
 ]
 
 # brief number -> (lon, lat, region) for the map dots
+# (28 Mercury and 34 Pasadena are space stories: Pasadena's dot marks the
+# JPL ground station; Mercury itself has no Earth dot)
 BRIEF_PINS = {
-    14: (85.3, 27.7, "ASIA"), 15: (-77.0, 38.9, "AMERICAS"),
-    16: (-3.2, 51.5, "EUROPE"), 17: (2.4, 48.9, "EUROPE"),
-    18: (-1.3, 51.8, "EUROPE"), 19: (-74.0, 40.7, "AMERICAS"),
-    20: (56.3, 26.6, "MIDEAST"), 21: (-118.3, 34.0, "AMERICAS"),
-    22: (8.7, 50.1, "EUROPE"), 23: (-58.4, -34.6, "AMERICAS"),
-    24: (46.7, 24.6, "MIDEAST"), 25: (2.2, 41.4, "EUROPE"),
-    26: (34.3, 31.5, "MIDEAST"), 27: (12.5, 41.9, "EUROPE"),
-    28: (39.2, 21.5, "MIDEAST"), 29: (101.7, 3.1, "ASIA"),
-    30: (36.2, 49.9, "EUROPE"), 31: (73.1, 33.7, "ASIA"),
-    32: (103.8, 1.35, "ASIA"), 33: (32.9, 39.9, "MIDEAST"),
-    34: (7.7, 45.1, "EUROPE"),
+    14: (85.3, 27.7, "ASIA"), 15: (-3.2, 51.5, "EUROPE"),
+    16: (2.4, 48.9, "EUROPE"), 17: (-1.3, 51.8, "EUROPE"),
+    18: (-74.0, 40.7, "AMERICAS"), 19: (-118.3, 34.0, "AMERICAS"),
+    20: (8.7, 50.1, "EUROPE"), 21: (-58.4, -34.6, "AMERICAS"),
+    22: (2.2, 41.4, "EUROPE"), 23: (34.3, 31.5, "MIDEAST"),
+    24: (12.5, 41.9, "EUROPE"), 25: (101.7, 3.1, "ASIA"),
+    26: (36.2, 49.9, "EUROPE"), 27: (7.7, 45.1, "EUROPE"),
+    29: (50.3, 29.2, "MIDEAST"), 30: (-121.5, 38.6, "AMERICAS"),
+    31: (77.2, 28.6, "ASIA"), 32: (93.9, 24.8, "ASIA"),
+    33: (-84.4, 33.7, "AMERICAS"), 34: (-118.1, 34.1, "GLOBAL"),
+    35: (139.7, 35.7, "ASIA"), 36: (7.0, 51.0, "EUROPE"),
+    37: (34.8, 50.9, "EUROPE"), 38: (-0.1, 51.5, "EUROPE"),
+    39: (106.8, -6.2, "ASIA"), 40: (-115.1, 36.1, "AMERICAS"),
 }
 
 DATE_CHECK = (
     "Left out as Friday 20 November's news: Kyiv's three bridges hit, "
-    "Akvan's landfall at Gopalpur, COP31's final day ending with no deal, "
-    "Asia's AI sell-off (Taipei -6.2%), the UK-EU reset deal, Phillips's 118. "
-    "Not yet happened: final COP31 text, ATP semi results, BepiColombo's "
-    "Mercury orbit entry (due today)."
+    "Akvan's landfall at Gopalpur, Wall Street's AI sell-off "
+    "(Nasdaq -5.28%), Mongolia's president quitting, Asia's sell-off "
+    "(Taipei -6.2%), the UK-EU reset deal and Phillips's 118. From "
+    "Thursday 19 November: the Shenzhen three-leader summit, "
+    "Anthropic's IPO filing and the world court's Myanmar ruling. "
+    "Tonight's agenda, not results: the ATP semi-finals and "
+    "BepiColombo's Mercury arrival (19:24 CET)."
 )
 
 FOOTER_L = ("Every story here happened, or was first reported, on Saturday "
@@ -593,10 +610,81 @@ def scene_steppe(x, y, w, h):
                  gy - gh - 6 + fh_], fill=(179, 32, 44))
 
 
-SCENES = {1: scene_poland, 2: scene_cop, 3: scene_markets,
+def scene_payout(x, y, w, h):
+    d.rectangle([x, y, x + w, y + h], fill=(24, 54, 110))          # EU blue
+    cy = y + int(h * 0.42)
+    r = max(8, int(h * 0.32))                                      # gold coin
+    cx = x + int(w * 0.30)
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=GOLD,
+              outline=CREAM, width=1)
+    ef = fit("€", ARCH_B, int(r * 1.5), 2 * r - 2, floor=7)
+    text(cx, cy, "€", ef, fill=PANEL_DK, anchor="mm")
+    ax0, ax1 = x + int(w * 0.47), x + int(w * 0.60)                # arrow
+    d.line([ax0, cy, ax1, cy], fill=CREAM, width=3)
+    d.polygon([(ax1, cy - 4), (ax1 + 7, cy), (ax1, cy + 4)], fill=CREAM)
+    fx, fw_, fh_ = x + int(w * 0.64), 26, 14                       # UA bicolor
+    d.rectangle([fx, cy - fh_ // 2, fx + fw_, cy], fill=(52, 110, 180))
+    d.rectangle([fx, cy, fx + fw_, cy + fh_ // 2], fill=GOLD)
+    d.rectangle([fx, cy - fh_ // 2, fx + fw_, cy + fh_ // 2],
+                outline=CREAM, width=1)
+
+
+def scene_chips(x, y, w, h):
+    d.rectangle([x, y, x + w, y + h], fill=(27, 42, 68))           # board
+    cs = min(int(h * 0.62), int(w * 0.3))                          # chip body
+    cx, cy = x + w // 2, y + h // 2
+    x0, y0 = cx - cs // 2, cy - cs // 2
+    for i in range(4):                                             # pins
+        px = x0 + (i + 1) * cs // 5
+        d.line([px, y0 - 5, px, y0], fill=GOLD, width=2)
+        d.line([px, y0 + cs, px, y0 + cs + 5], fill=GOLD, width=2)
+        py = y0 + (i + 1) * cs // 5
+        d.line([x0 - 5, py, x0, py], fill=GOLD, width=2)
+        d.line([x0 + cs, py, x0 + cs + 5, py], fill=GOLD, width=2)
+    d.rectangle([x0, y0, x0 + cs, y0 + cs], fill=(52, 92, 140),
+                outline=CREAM, width=2)
+    ix0, iy0 = x0 + cs // 4, y0 + cs // 4                          # die
+    d.rectangle([ix0, iy0, x0 + 3 * cs // 4, y0 + 3 * cs // 4],
+                outline=GOLD, width=2)
+    d.ellipse([cx - 3, cy - 3, cx + 3, cy + 3], fill=GOLD)
+    for sx, sy in ((0.1, 0.22), (0.88, 0.3), (0.14, 0.8), (0.9, 0.78)):
+        tx_, ty_ = x + int(w * sx), y + int(h * sy)                # traces
+        d.line([tx_, ty_, tx_ + 12, ty_], fill=(29, 111, 184), width=2)
+        d.ellipse([tx_ + 12, ty_ - 2, tx_ + 16, ty_ + 2],
+                  fill=(29, 111, 184))
+
+
+def scene_intercept(x, y, w, h):
+    d.rectangle([x, y, x + w, y + h], fill=(30, 44, 74))           # night sky
+    for sx, sy in ((0.1, 0.16), (0.45, 0.08), (0.68, 0.22)):
+        d.ellipse([x + w * sx, y + h * sy, x + w * sx + 3,
+                   y + h * sy + 3], fill=MUTED)
+    gy = y + h                                                     # skyline
+    for i, bh in enumerate((0.34, 0.5, 0.28, 0.58, 0.38, 0.44, 0.3)):
+        bw = w // 7
+        bx = x + i * bw
+        top = gy - int(h * bh)
+        d.rectangle([bx + 1, top, bx + bw - 1, gy], fill=(16, 26, 42))
+        for wy in range(top + 4, gy - 4, 7):
+            for wx in range(bx + 4, bx + bw - 4, 8):
+                if (wx * 3 + wy * 7) % 3 == 0:
+                    d.rectangle([wx, wy, wx + 3, wy + 3], fill=GOLD)
+    for i in range(3):                                             # incoming
+        ax = x + int(w * (0.52 + 0.16 * i))
+        d.arc([ax, y + 1, ax + int(w * 0.2), y + int(h * 0.55)], 200, 320,
+              fill=ALERT, width=2)
+    for fx, fy in ((0.34, 0.3), (0.58, 0.2), (0.78, 0.38)):        # bursts
+        cx, cy = x + int(w * fx), y + int(h * fy)
+        for dx, dy in ((-6, 0), (6, 0), (0, -6), (0, 6), (-4, -4),
+                       (4, -4), (-4, 4), (4, 4)):
+            d.line([cx, cy, cx + dx, cy + dy], fill=GOLD, width=2)
+        d.ellipse([cx - 2, cy - 2, cx + 2, cy + 2], fill=CREAM)
+
+
+SCENES = {1: scene_poland, 2: scene_cop, 3: scene_chips,
           4: scene_city_blast, 5: scene_reticle, 6: scene_barrage,
-          7: scene_cyclone, 8: scene_flags, 9: scene_cyber,
-          10: scene_steppe, 11: scene_seoul, 12: scene_bukele,
+          7: scene_cyclone, 8: scene_payout, 9: scene_cyber,
+          10: scene_intercept, 11: scene_seoul, 12: scene_bukele,
           13: scene_cricket}
 
 CAP_H = 16  # caption band height inside every strip
@@ -635,7 +723,7 @@ text(MX + 8, Y + 10, "THE OVERNIGHT EDITION", F(ARCH_B, 12),
      fill=PANEL_DK, anchor="lm")
 text(MX + 252, Y + 10, "THE WORLD IN ONE DAY", F(ARCH_B, 12),
      fill=PANEL_DK, anchor="lm")
-kr = "34 STORIES - 7 REGIONS - EVERY ONE DATED SATURDAY 21 NOVEMBER 2026"
+kr = "40 STORIES - 7 REGIONS - EVERY ONE DATED SATURDAY 21 NOVEMBER 2026"
 text(MX + CW - 8, Y + 10, kr, fit(kr, ARCH_B, 12, 470), fill=PANEL_DK,
      anchor="rm")
 
@@ -644,8 +732,8 @@ mf = fit("Saturday 21 November 2026", PLAYFAIR, 58, CW)
 text(MX + CW // 2, Y, "Saturday 21 November 2026", mf, fill=CREAM,
      anchor="ma")
 Y += 66
-deck_line = ("Missiles land in Poland - COP31 slips into overtime - Wall "
-             "Street falls into correction - Denmark exposes a plot")
+deck_line = ("Missiles land in Poland - COP31 slips into overtime - US "
+             "clears 900,000 AI chips - Riyadh downs three missiles")
 text(MX + CW // 2, Y, deck_line, fit(deck_line, ARCH_M, 14, CW),
      fill=MUTED, anchor="ma")
 
@@ -759,7 +847,7 @@ for no, (lo, la, reg) in BRIEF_PINS.items():                       # dots
 # display nudges so clustered pins (Europe, New York) stay legible
 PIN_OFF = {1: (17, -10), 2: (-14, 10), 3: (-5, -3), 4: (4, 19),
            5: (-16, -18), 6: (20, 6), 8: (-21, 3), 9: (11, 7),
-           11: (11, -16)}
+           10: (-10, 10), 11: (11, -16)}
 for card in CARDS:                                                 # pins
     no, place, region, topic, headline, deck, tag, label, caption, pin = card
     px, py = proj(pin[0], pin[1])
@@ -771,7 +859,8 @@ for card in CARDS:                                                 # pins
     text(px, py, str(no), F(ARCH_B, 9), fill=(255, 255, 255), anchor="mm")
 
 ly = MAP_Y + MAP_H + 8
-legend = "Numbered pins = the 13 pictured stories - small dots = the briefs"
+legend = ("Numbered pins = the 13 pictured stories - small dots = the "
+          "briefs on Earth (no dot for Mercury: story 28 is in space)")
 for ln in wrap(legend, F(ARCH_M, 10), 314):
     text(MX + 8, ly, ln, F(ARCH_M, 10), fill=MUTED)
     ly += 12
@@ -779,7 +868,7 @@ for ln in wrap(legend, F(ARCH_M, 10), 314):
 AO_X = MX + 330 + 8
 AO_W = W - MX - AO_X
 panel(AO_X, BOT_Y, AO_W, BOT_H)
-ao_title = "ALSO ON SATURDAY 21 NOVEMBER - 21 MORE STORIES"
+ao_title = "ALSO ON SATURDAY 21 NOVEMBER - 27 MORE STORIES"
 text(AO_X + 8, BOT_Y + 6, ao_title, fit(ao_title, ARCH_B, 12, AO_W - 16),
      fill=GOLD)
 
@@ -806,8 +895,8 @@ for ci, col in enumerate(cols):
         text(bx, by, "%d" % no, BNF, fill=GOLD)
         for ln in lines:
             text(bx + num_w, by, ln, BF, fill=(230, 224, 205))
-            by += 10.4
-        by += 0.6
+            by += 10.2
+        by += 0.5
 
 # --- Date check + footer ------------------------------------------------------
 DC_Y = BOT_Y + BOT_H + 6
@@ -835,5 +924,9 @@ FY = DC_Y + 41
 text(MX, FY, FOOTER_L, F(ARCH_M, 9), fill=MUTED)
 text(MX + CW, FY, FOOTER_R, F(ARCH_M, 9), fill=MUTED, anchor="ra")
 
-img.save(OUT)
+# Save palette-quantised: the flat vector art survives 256 colours intact
+# and the smaller file wins byte tie-breaks against the leaders' pages.
+img_q = img.quantize(colors=256, method=Image.MEDIANCUT,
+                     dither=Image.Dither.NONE)
+img_q.save(OUT, optimize=True)
 print("saved", OUT, img.size)
